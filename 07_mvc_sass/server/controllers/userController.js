@@ -5,7 +5,7 @@ let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'usermanagement_tut'
+    database: 'usermanagement'
 })
 
 exports.view = (req, res) => {
@@ -99,4 +99,15 @@ exports.edit = (req, res) => {
         console.log('The data from user table: \n', rows);
     })
 
+  }
+
+  exports.viewall = (req, res) =>{
+    connection.query(`SELECT * FROM user WHERE id=?`, [req.params.id], (err,rows)=>{
+      if(!err){
+        res.render('view-user', {rows})
+      }else{
+        console.log(err);
+      }
+      console.log('The data from user table: \n', rows);
+    })
   }

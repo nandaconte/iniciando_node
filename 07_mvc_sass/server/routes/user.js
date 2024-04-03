@@ -9,6 +9,7 @@ router.post ('/adduser', userController.create)
 router.get('/edituser/:id', userController.edit)
 router.post('/edituser/:id', userController.update)
 router.get('/:id', userController.delete)
+router.get('/viewuser/:id', userController.viewall)
 
 
 
